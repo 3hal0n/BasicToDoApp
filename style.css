@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f4f6;
+  font-family: "Inter", sans-serif;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid black;
+  border-radius: 4px;
+  /* Adjusts the position of the checkboxes on the text baseline */
+  vertical-align: -2px;
+  /* Set here so that Windows' High-Contrast Mode can override */
+  color: black;
+}
+
+input[type="checkbox"]::before {
+  content: "✔";
+  position: absolute;
+  font-size: 1.2em;
+  right: -1px;
+  top: -0.3em;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked::before {
+  /* Use `visibility` instead of `display` to avoid recalculating layout */
+  visibility: visible;
+}
+
+input[type="checkbox"]:disabled {
+  border-color: black;
+  background: #ddd;
+  color: gray;
+}
+
+.container {
+  /* border: 1px solid black; */
+  width: 50%;
+  height: 100vh;
+  padding: 16px;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    p {
+      margin-top: 8px;
+    }
+
+    .container__header__time {
+      h1 {
+        font-size: 36px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.todo__create__container {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    display: block;
+    width: 80%;
+    font-size: 20px;
+    padding: 8px;
+    outline: none;
+    border-radius: 8px;
+  }
+  button {
+    display: block;
+    width: 15%;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #0ea5e9;
+    color: #fff;
+    outline: none;
+    border: none;
+  }
+}
+
+.todo__container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.todo__item {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  background: #fff;
+  align-items: center;
+  border: 2px solid #0ea5e9;
+
+  .todo__item__left {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .todo__delete__button {
+    cursor: pointer;
+  }
+}
+
+.todo__item--completed {
+  text-decoration: line-through;
+}
